@@ -21,7 +21,7 @@ class App extends Component<{}, AppState> {
     days: 0,
     randomness: 0.2,
     sideLength: 40,
-    speed: 300,
+    speed: 50,
     timer: undefined,
     world: randomWorld(40, 0.2),
   };
@@ -174,7 +174,7 @@ class App extends Component<{}, AppState> {
         </p>
         <p>
           <label htmlFor="randomnessSlider">
-            <strong>Chance of life:</strong> {randomness}
+            <strong>Life Population :</strong> {randomness}
           </label>
           <input
             disabled={gameInPlay}
@@ -187,7 +187,7 @@ class App extends Component<{}, AppState> {
             onChange={e => this.updateRandomness(Number(e.target.value))}
           />
           <label htmlFor="speedSlider">
-            <strong>Speed:</strong> {speed}
+            <strong>Slowness :</strong> {speed}
             ms
           </label>
           <input
@@ -201,7 +201,7 @@ class App extends Component<{}, AppState> {
             onChange={e => this.updateSpeed(Number(e.target.value))}
           />
           <label htmlFor="dimensionsSlider">
-            <strong>Side length:</strong> {sideLength}
+            <strong>Area of Grid :</strong> {sideLength}
           </label>
           <input
             disabled={gameInPlay}

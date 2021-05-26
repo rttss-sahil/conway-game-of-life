@@ -223,7 +223,7 @@ class App extends Component<{}, AppState> {
         <button onClick={this.resetWorld}>Reset World</button>
         <div style={{ padding: '30px 0' }}>
           Created by <a href="https://portfolio.infortts.com/">@Sahil_Rathee</a> |{' '}
-          <a href="http://github.com/rttss_sahil" style={{ color: '#000' }}>
+          <a href="http://github.com/rttss-sahil/conway-game-of-life" style={{ color: '#000' }}>
             {' '}
             Source code{' '}
           </a>

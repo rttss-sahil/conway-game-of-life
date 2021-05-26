@@ -6,6 +6,10 @@ This is my implementation of [Conway's Game of Life][conway] in React.js and
 TypeScript.
 
 https://conway-game.infortts.com/
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2d81250d182176e7384e9df10f367b9d7451225d
 
 ### Setup
 

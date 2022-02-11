@@ -3,6 +3,7 @@ import './App.css';
 import React, { Component } from 'react';
 
 import { randomColor, randomWorld } from './app_helper';
+
 import Cell from './components/Cell';
 
 interface AppState {
@@ -145,88 +146,92 @@ class App extends Component<{}, AppState> {
     } = this.state;
     const gameInPlay = Boolean(timer);
     return (
-      <div style={{ margin: 'auto', width: '600px' }}>
-        <h1>Game of Life</h1>
-        <table>
-          <tbody>
-            {world.map((row, rowIndex) => {
-              return (
-                <tr key={rowIndex}>
-                  {row.map((cellValue, cellIndex) => (
-                    <Cell
-                      gameInPlay={gameInPlay}
-                      cellIndex={cellIndex}
-                      cellValue={cellValue}
-                      colorOfLife={colorOfLife}
-                      rowIndex={rowIndex}
-                      key={cellIndex}
-                      world={world}
-                      updateWorld={this.updateWorld}
-                    />
-                  ))}
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-        <p>
-          <strong>Days:</strong> {days}
-        </p>
-        <p>
-          <label htmlFor="randomnessSlider">
-            <strong>Life Population :</strong> {randomness}
-          </label>
-          <input
-            disabled={gameInPlay}
-            type="range"
-            id="randomnessSlider"
-            min="0"
-            max="1"
-            value={randomness}
-            step="0.1"
-            onChange={e => this.updateRandomness(Number(e.target.value))}
-          />
-          <label htmlFor="speedSlider">
-            <strong>Slowness :</strong> {speed}
-            ms
-          </label>
-          <input
-            disabled={gameInPlay}
-            type="range"
-            id="speedSlider"
-            min="10"
-            max="3000"
-            value={speed}
-            step="10"
-            onChange={e => this.updateSpeed(Number(e.target.value))}
-          />
-          <label htmlFor="dimensionsSlider">
-            <strong>Area of Grid :</strong> {sideLength}
-          </label>
-          <input
-            disabled={gameInPlay}
-            type="range"
-            id="dimensionsSlider"
-            min="10"
-            max="40"
-            value={sideLength}
-            step="1"
-            onChange={e => this.updateSideLength(Number(e.target.value))}
-          />
-        </p>
-        <button disabled={gameInPlay} onClick={this.start}>
-          Start
-        </button>
-        <button disabled={!gameInPlay} onClick={this.stop}>
-          Stop
-        </button>
-        <button onClick={this.resetWorld}>Reset World</button>
-        <div style={{ padding: '30px 0' }}>
-          Created by <a href="https://portfolio.infortts.com/">@Sahil_Rathee</a> |{' '}
-          <a href="http://github.com/rttss-sahil/conway-game-of-life" style={{ color: '#000' }}>
-            {' '}
-            Source code{' '}
-          </a>
+      <div style={{ margin: 'auto', width: '600px' }} className='container'>
+        <div className='left'>
+          <h1>Game of Life</h1>
+          <table>
+            <tbody>
+              {world.map((row, rowIndex) => {
+                return (
+                  <tr key={rowIndex}>
+                    {row.map((cellValue, cellIndex) => (
+                      <Cell
+                        gameInPlay={gameInPlay}
+                        cellIndex={cellIndex}
+                        cellValue={cellValue}
+                        colorOfLife={colorOfLife}
+                        rowIndex={rowIndex}
+                        key={cellIndex}
+                        world={world}
+                        updateWorld={this.updateWorld}
+                      />
+                    ))}
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+        <div className="right">
+          <p>
+            <strong>Days:</strong> {days}
+          </p>
+          <p>
+            <label htmlFor="randomnessSlider">
+              <strong>Life Population :</strong> {randomness}
+            </label>
+            <input
+              disabled={gameInPlay}
+              type="range"
+              id="randomnessSlider"
+              min="0"
+              max="1"
+              value={randomness}
+              step="0.1"
+              onChange={e => this.updateRandomness(Number(e.target.value))}
+            />
+            <label htmlFor="speedSlider">
+              <strong>Slowness :</strong> {speed}
+              ms
+            </label>
+            <input
+              disabled={gameInPlay}
+              type="range"
+              id="speedSlider"
+              min="10"
+              max="3000"
+              value={speed}
+              step="10"
+              onChange={e => this.updateSpeed(Number(e.target.value))}
+            />
+            <label htmlFor="dimensionsSlider">
+              <strong>Area of Grid :</strong> {sideLength}
+            </label>
+            <input
+              disabled={gameInPlay}
+              type="range"
+              id="dimensionsSlider"
+              min="10"
+              max="40"
+              value={sideLength}
+              step="1"
+              onChange={e => this.updateSideLength(Number(e.target.value))}
+            />
+          </p>
+          <button disabled={gameInPlay} onClick={this.start}>
+            Start
+          </button>
+          <button disabled={!gameInPlay} onClick={this.stop}>
+            Stop
+          </button>
+          <button onClick={this.resetWorld}>Reset World</button>
+          <div style={{ padding: '30px 0' }}>
+            Created by <a href="https://portfolio.infortts.com/">@Sahil_Rathee</a> |{' '}
+            <a href="http://github.com/rttss-sahil/conway-game-of-life" style={{ color: '#000' }}>
+              {' '}
+              Source code{' '}
+            </a>
+          </div>
         </div>
       </div>
     );

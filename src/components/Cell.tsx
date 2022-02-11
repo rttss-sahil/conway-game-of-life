@@ -1,5 +1,7 @@
 import React from 'react';
 
+import "./style.css";
+
 interface CellProps {
   cellIndex: number;
   cellValue: number;
@@ -28,11 +30,9 @@ const Cell = ({
 
   return (
     <td
+      className="td"
       style={{
         background: color(cellValue),
-        width: '15px',
-        height: '15px',
-        border: '1px solid lightgray',
       }}
       onClick={() => {
         if (!gameInPlay) {

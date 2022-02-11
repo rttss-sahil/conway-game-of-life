@@ -1,0 +1,12 @@
+.td {
+  width: 15px;
+  height: 15px;
+  border: 1px solid lightgray;
+}
+
+@media screen and (max-width: 768px) {
+  .td {
+    width: 5px;
+    height: 5px;
+  }
+}
